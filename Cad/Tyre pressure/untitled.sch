@@ -2071,7 +2071,6 @@ This 6 pin header contains all the lines necessary for programming most PIC micr
 <pad name="SCL" x="14.9" y="-1.5" drill="0.6" diameter="1.6764"/>
 <pad name="SDA" x="17.45" y="-1.5" drill="0.6" diameter="1.6764"/>
 <text x="5.4" y="-14.9" size="3.81" layer="25">128X64</text>
-<hole x="25.6" y="-26" drill="0.35"/>
 <pad name="P$5" x="2" y="-2" drill="1" diameter="3"/>
 <pad name="P$6" x="25.7" y="-2" drill="1" diameter="3"/>
 <pad name="P$7" x="25.6" y="-26" drill="1" diameter="3"/>
