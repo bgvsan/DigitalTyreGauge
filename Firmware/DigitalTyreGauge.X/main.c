@@ -7,6 +7,7 @@
 
 
 #include <xc.h>
+#include <Adafruit_SSD1306.h>
 
 void main(void) {
     return;
