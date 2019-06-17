@@ -3,7 +3,7 @@ __S1 0 0 ABS 0
 __S2 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
-_main 7FF6 0 CODE 0
+_main 7FF4 0 CODE 0
 ___sp 0 0 STACK 2
 start 0 0 CODE 0
 __Hirdata 0 0 CODE 0
@@ -71,6 +71,9 @@ __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 end_of_initialization 7FFA 0 CODE 0
+__size_of_InitDevice 0 0 ABS 0
+__end_of_InitDevice 7FF4 0 CODE 0
+_InitDevice 7FF2 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -91,7 +94,10 @@ __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
 __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
-__ptext0 7FF6 0 CODE 0
+__Htext1 0 0 ABS 0
+__Ltext1 0 0 ABS 0
+__ptext0 7FF4 0 CODE 0
+__ptext1 7FF2 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 __end_of__initialization 7FFA 0 CODE 0
@@ -147,17 +153,22 @@ reset_vec 0 3 CODE 0 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 cinit 7FFA 7FFF CODE 7FFA 0
-text0 7FF6 7FF9 CODE 7FF6 0
+text0 7FF4 7FF9 CODE 7FF4 0
+text1 7FF2 7FF3 CODE 7FF2 0
 %locals
 dist/default/production/DigitalTyreGauge.X.production.o
 /Applications/microchip/xc8/v2.05/pic/include/pic18f2520.h
-/tmp/xcepPdqqL
-376 7FFA 0 CODE 0
-378 7FFA 0 CODE 0
-381 7FFA 0 CODE 0
-387 7FFA 0 CODE 0
-389 7FFA 0 CODE 0
-390 7FFC 0 CODE 0
+/tmp/xcgPPm1OW
+377 7FFA 0 CODE 0
+379 7FFA 0 CODE 0
+382 7FFA 0 CODE 0
+388 7FFA 0 CODE 0
+390 7FFA 0 CODE 0
+391 7FFC 0 CODE 0
 main.c
-11 7FF6 0 CODE 0
-13 7FF6 0 CODE 0
+13 7FF4 0 CODE 0
+16 7FF4 0 CODE 0
+27 7FF8 0 CODE 0
+30 7FF8 0 CODE 0
+./setup.h
+15 7FF2 0 CODE 0

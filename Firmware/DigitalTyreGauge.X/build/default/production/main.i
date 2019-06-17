@@ -4012,8 +4012,24 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "/Applications/microchip/xc8/v2.05/pic/include/xc.h" 2 3
+# 9 "main.c" 2
+
+# 1 "./oled/oled.h" 1
 # 10 "main.c" 2
 
+# 1 "./setup.h" 1
+# 15 "./setup.h"
+void InitDevice(void){};
+# 11 "main.c" 2
+
+
 void main(void) {
-    return;
+
+
+    InitDevice();
+# 27 "main.c"
+    while (1)
+    {
+
+    }
 }

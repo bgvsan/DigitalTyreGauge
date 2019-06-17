@@ -7,8 +7,25 @@
 
 
 #include <xc.h>
-#include <Adafruit_SSD1306.h>
+#include "oled/oled.h"
+#include "setup.h"
 
 void main(void) {
-    return;
+    
+    //int microcontroller
+    InitDevice();
+    //analog pin
+    //i2c
+    //led output
+    //
+    
+    //init i2c lib
+    
+    //init oled Library
+    
+    
+    while (1)
+    {
+        
+    } 
 }

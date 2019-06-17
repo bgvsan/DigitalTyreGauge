@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Thu May 30 23:46:12 2019
+                                                                                               Mon Jun 17 23:16:31 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	18F2520
@@ -11,155 +11,201 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
      5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
      6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
      7                           	psect	text0,global,reloc=2,class=CODE,delta=1
-     8                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
-     9                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
-    10  0000                     
-    11                           ; Version 2.05
-    12                           ; Generated 20/12/2018 GMT
-    13                           ; 
-    14                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    15                           ; All rights reserved.
-    16                           ; 
-    17                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    10                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    11  0000                     
+    12                           ; Version 2.05
+    13                           ; Generated 20/12/2018 GMT
+    14                           ; 
+    15                           ; Copyright © 2018, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    16                           ; All rights reserved.
+    17                           ; 
+    18                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    18                           ; 
-    19                           ; Redistribution and use in source and binary forms, with or without modification, are
-    20                           ; permitted provided that the following conditions are met:
-    21                           ; 
-    22                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    19                           ; 
+    20                           ; Redistribution and use in source and binary forms, with or without modification, are
+    21                           ; permitted provided that the following conditions are met:
+    22                           ; 
+    23                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    23                           ;        conditions and the following disclaimer.
-    24                           ; 
-    25                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    24                           ;        conditions and the following disclaimer.
+    25                           ; 
+    26                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    26                           ;        of conditions and the following disclaimer in the documentation and/or other
-    27                           ;        materials provided with the distribution.
-    28                           ; 
-    29                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    27                           ;        of conditions and the following disclaimer in the documentation and/or other
+    28                           ;        materials provided with the distribution.
+    29                           ; 
+    30                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    30                           ;        software without specific prior written permission.
-    31                           ; 
-    32                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    33                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    31                           ;        software without specific prior written permission.
+    32                           ; 
+    33                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    34                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    34                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    35                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    35                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    36                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    37                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    36                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    37                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    38                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    38                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    39                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    39                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    40                           ; 
+    40                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     41                           ; 
-    42                           ; Code-generator required, PIC18F2520 Definitions
-    43                           ; 
-    44                           ; SFR Addresses
-    45  0000                     
-    46                           ; #config settings
-    47                           
-    48                           	psect	cinit
-    49  007FFA                     __pcinit:
-    50                           	opt callstack 0
-    51  007FFA                     start_initialization:
-    52                           	opt callstack 0
-    53  007FFA                     __initialization:
-    54                           	opt callstack 0
-    55  007FFA                     end_of_initialization:
-    56                           	opt callstack 0
-    57  007FFA                     __end_of__initialization:
-    58                           	opt callstack 0
-    59  007FFA  0100               	movlb	0
-    60  007FFC  EFFB  F03F         	goto	_main	;jump to C main() function
-    61                           
-    62                           	psect	cstackCOMRAM
-    63  000000                     __pcstackCOMRAM:
-    64                           	opt callstack 0
-    65  000000                     
-    66                           ; 1 bytes @ 0x0
-    67 ;;
-    68 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-    69 ;;
-    70 ;; *************** function _main *****************
-    71 ;; Defined at:
-    72 ;;		line 11 in file "main.c"
-    73 ;; Parameters:    Size  Location     Type
-    74 ;;		None
-    75 ;; Auto vars:     Size  Location     Type
-    76 ;;		None
-    77 ;; Return value:  Size  Location     Type
-    78 ;;                  1    wreg      void 
-    79 ;; Registers used:
-    80 ;;		None
-    81 ;; Tracked objects:
-    82 ;;		On entry : 0/0
-    83 ;;		On exit  : 0/0
-    84 ;;		Unchanged: 0/0
-    85 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-    86 ;;      Params:         0       0       0       0       0       0       0
-    87 ;;      Locals:         0       0       0       0       0       0       0
-    88 ;;      Temps:          0       0       0       0       0       0       0
-    89 ;;      Totals:         0       0       0       0       0       0       0
-    90 ;;Total ram usage:        0 bytes
-    91 ;; This function calls:
-    92 ;;		Nothing
-    93 ;; This function is called by:
-    94 ;;		Startup code after reset
-    95 ;; This function uses a non-reentrant model
-    96 ;;
-    97                           
-    98                           	psect	text0
-    99  007FF6                     __ptext0:
-   100                           	opt callstack 0
-   101  007FF6                     _main:
-   102                           	opt callstack 31
-   103                           
-   104                           ;main.c: 12:     return;
+    42                           ; 
+    43                           ; Code-generator required, PIC18F2520 Definitions
+    44                           ; 
+    45                           ; SFR Addresses
+    46  0000                     
+    47                           ; #config settings
+    48                           
+    49                           	psect	cinit
+    50  007FFA                     __pcinit:
+    51                           	opt callstack 0
+    52  007FFA                     start_initialization:
+    53                           	opt callstack 0
+    54  007FFA                     __initialization:
+    55                           	opt callstack 0
+    56  007FFA                     end_of_initialization:
+    57                           	opt callstack 0
+    58  007FFA                     __end_of__initialization:
+    59                           	opt callstack 0
+    60  007FFA  0100               	movlb	0
+    61  007FFC  EFFA  F03F         	goto	_main	;jump to C main() function
+    62                           
+    63                           	psect	cstackCOMRAM
+    64  000000                     __pcstackCOMRAM:
+    65                           	opt callstack 0
+    66  000000                     
+    67                           ; 1 bytes @ 0x0
+    68 ;;
+    69 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    70 ;;
+    71 ;; *************** function _main *****************
+    72 ;; Defined at:
+    73 ;;		line 13 in file "main.c"
+    74 ;; Parameters:    Size  Location     Type
+    75 ;;		None
+    76 ;; Auto vars:     Size  Location     Type
+    77 ;;		None
+    78 ;; Return value:  Size  Location     Type
+    79 ;;                  1    wreg      void 
+    80 ;; Registers used:
+    81 ;;		cstack
+    82 ;; Tracked objects:
+    83 ;;		On entry : 0/0
+    84 ;;		On exit  : 0/0
+    85 ;;		Unchanged: 0/0
+    86 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+    87 ;;      Params:         0       0       0       0       0       0       0
+    88 ;;      Locals:         0       0       0       0       0       0       0
+    89 ;;      Temps:          0       0       0       0       0       0       0
+    90 ;;      Totals:         0       0       0       0       0       0       0
+    91 ;;Total ram usage:        0 bytes
+    92 ;; Hardware stack levels required when called:    1
+    93 ;; This function calls:
+    94 ;;		_InitDevice
+    95 ;; This function is called by:
+    96 ;;		Startup code after reset
+    97 ;; This function uses a non-reentrant model
+    98 ;;
+    99                           
+   100                           	psect	text0
+   101  007FF4                     __ptext0:
+   102                           	opt callstack 0
+   103  007FF4                     _main:
+   104                           	opt callstack 30
    105                           
-   106                           ;incstack = 0
-   107  007FF6  EF00  F000         	goto	start
-   108  007FFA                     __end_of_main:
-   109                           	opt callstack 0
-   110  0000                     
-   111                           	psect	rparam
-   112  0000                     tosu	equ	0xFFF
-   113                           tosh	equ	0xFFE
-   114                           tosl	equ	0xFFD
-   115                           stkptr	equ	0xFFC
-   116                           pclatu	equ	0xFFB
-   117                           pclath	equ	0xFFA
-   118                           pcl	equ	0xFF9
-   119                           tblptru	equ	0xFF8
-   120                           tblptrh	equ	0xFF7
-   121                           tblptrl	equ	0xFF6
-   122                           tablat	equ	0xFF5
-   123                           prodh	equ	0xFF4
-   124                           prodl	equ	0xFF3
-   125                           indf0	equ	0xFEF
-   126                           postinc0	equ	0xFEE
-   127                           postdec0	equ	0xFED
-   128                           preinc0	equ	0xFEC
-   129                           plusw0	equ	0xFEB
-   130                           fsr0h	equ	0xFEA
-   131                           fsr0l	equ	0xFE9
-   132                           wreg	equ	0xFE8
-   133                           indf1	equ	0xFE7
-   134                           postinc1	equ	0xFE6
-   135                           postdec1	equ	0xFE5
-   136                           preinc1	equ	0xFE4
-   137                           plusw1	equ	0xFE3
-   138                           fsr1h	equ	0xFE2
-   139                           fsr1l	equ	0xFE1
-   140                           bsr	equ	0xFE0
-   141                           indf2	equ	0xFDF
-   142                           postinc2	equ	0xFDE
-   143                           postdec2	equ	0xFDD
-   144                           preinc2	equ	0xFDC
-   145                           plusw2	equ	0xFDB
-   146                           fsr2h	equ	0xFDA
-   147                           fsr2l	equ	0xFD9
-   148                           status	equ	0xFD8
+   106                           ;main.c: 16:     InitDevice();
+   107                           
+   108                           ;incstack = 0
+   109  007FF4  ECF9  F03F         	call	_InitDevice	;wreg free
+   110  007FF8                     l8:
+   111                           
+   112                           ;main.c: 28:     {;main.c: 30:     }
+   113  007FF8  D7FF               	goto	l8
+   114  007FFA                     __end_of_main:
+   115                           	opt callstack 0
+   116                           
+   117 ;; *************** function _InitDevice *****************
+   118 ;; Defined at:
+   119 ;;		line 15 in file "./setup.h"
+   120 ;; Parameters:    Size  Location     Type
+   121 ;;		None
+   122 ;; Auto vars:     Size  Location     Type
+   123 ;;		None
+   124 ;; Return value:  Size  Location     Type
+   125 ;;                  1    wreg      void 
+   126 ;; Registers used:
+   127 ;;		None
+   128 ;; Tracked objects:
+   129 ;;		On entry : 0/0
+   130 ;;		On exit  : 0/0
+   131 ;;		Unchanged: 0/0
+   132 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   133 ;;      Params:         0       0       0       0       0       0       0
+   134 ;;      Locals:         0       0       0       0       0       0       0
+   135 ;;      Temps:          0       0       0       0       0       0       0
+   136 ;;      Totals:         0       0       0       0       0       0       0
+   137 ;;Total ram usage:        0 bytes
+   138 ;; Hardware stack levels used:    1
+   139 ;; This function calls:
+   140 ;;		Nothing
+   141 ;; This function is called by:
+   142 ;;		_main
+   143 ;; This function uses a non-reentrant model
+   144 ;;
+   145                           
+   146                           	psect	text1
+   147  007FF2                     __ptext1:
+   148                           	opt callstack 0
+   149  007FF2                     _InitDevice:
+   150                           	opt callstack 30
+   151                           
+   152                           ;incstack = 0
+   153  007FF2  0012               	return		;funcret
+   154  007FF4                     __end_of_InitDevice:
+   155                           	opt callstack 0
+   156  0000                     
+   157                           	psect	rparam
+   158  0000                     tosu	equ	0xFFF
+   159                           tosh	equ	0xFFE
+   160                           tosl	equ	0xFFD
+   161                           stkptr	equ	0xFFC
+   162                           pclatu	equ	0xFFB
+   163                           pclath	equ	0xFFA
+   164                           pcl	equ	0xFF9
+   165                           tblptru	equ	0xFF8
+   166                           tblptrh	equ	0xFF7
+   167                           tblptrl	equ	0xFF6
+   168                           tablat	equ	0xFF5
+   169                           prodh	equ	0xFF4
+   170                           prodl	equ	0xFF3
+   171                           indf0	equ	0xFEF
+   172                           postinc0	equ	0xFEE
+   173                           postdec0	equ	0xFED
+   174                           preinc0	equ	0xFEC
+   175                           plusw0	equ	0xFEB
+   176                           fsr0h	equ	0xFEA
+   177                           fsr0l	equ	0xFE9
+   178                           wreg	equ	0xFE8
+   179                           indf1	equ	0xFE7
+   180                           postinc1	equ	0xFE6
+   181                           postdec1	equ	0xFE5
+   182                           preinc1	equ	0xFE4
+   183                           plusw1	equ	0xFE3
+   184                           fsr1h	equ	0xFE2
+   185                           fsr1l	equ	0xFE1
+   186                           bsr	equ	0xFE0
+   187                           indf2	equ	0xFDF
+   188                           postinc2	equ	0xFDE
+   189                           postdec2	equ	0xFDD
+   190                           preinc2	equ	0xFDC
+   191                           plusw2	equ	0xFDB
+   192                           fsr2h	equ	0xFDA
+   193                           fsr2l	equ	0xFD9
+   194                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -218,13 +264,17 @@ Call Graph Tables:
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
  (0) _main                                                 0     0      0       0
+                         _InitDevice
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 0
+ (1) _InitDevice                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
 
  _main (ROOT)
+   _InitDevice
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -254,13 +304,15 @@ SFR                  0      0       0     200        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Thu May 30 23:46:12 2019
+Symbol Table                                                                                   Mon Jun 17 23:16:31 2019
 
-                   _main 7FF6                     start 0000             ___param_bank 000000  
-                  ?_main 0000          __initialization 7FFA             __end_of_main 7FFA  
-                 ??_main 0000            __activetblptr 000000               __accesstop 0080  
-__end_of__initialization 7FFA            ___rparam_used 000001           __pcstackCOMRAM 0000  
-                __Hparam 0000                  __Lparam 0000                  __pcinit 7FFA  
-                __ramtop 0600                  __ptext0 7FF6     end_of_initialization 7FFA  
-    start_initialization 7FFA                 __Hrparam 0000                 __Lrparam 0000  
-          __size_of_main 0004  
+                      l8 7FF8                     _main 7FF4                     start 0000  
+           ___param_bank 000000                    ?_main 0000               _InitDevice 7FF2  
+        __initialization 7FFA             __end_of_main 7FFA                   ??_main 0000  
+          __activetblptr 000000               __accesstop 0080  __end_of__initialization 7FFA  
+          ___rparam_used 000001              ?_InitDevice 0000           __pcstackCOMRAM 0000  
+    __size_of_InitDevice 0002                  __Hparam 0000                  __Lparam 0000  
+                __pcinit 7FFA                  __ramtop 0600                  __ptext0 7FF4  
+                __ptext1 7FF2     end_of_initialization 7FFA             ??_InitDevice 0000  
+    start_initialization 7FFA       __end_of_InitDevice 7FF4                 __Hrparam 0000  
+               __Lrparam 0000            __size_of_main 0006  
