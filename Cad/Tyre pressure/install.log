@@ -1,0 +1,14 @@
+Script self: /Users/diegosantinelli/Documents/EAGLE/ulps/oshpark-install.ulp
+Script self dir: /Users/diegosantinelli/Documents/EAGLE/ulps/
+File source dir: /Users/diegosantinelli/Documents/EAGLE/ulps//..
+ULP Dir: /Users/diegosantinelli/Documents/EAGLE/ulps
+SCR Dir: /Users/diegosantinelli/Documents/EAGLE/scripts
+BIN Dir: /Applications/EAGLE-9.4.1/eagle.app/Contents/MacOS/
+Found Eagle Version 9.400000
+Found a brd section from 8 to 18
+?? MENU ' [oshpark.png]Oshpark{Upload PCB: RUN oshpark-upload.ulp;|Check for updates: RUN oshpark.ulp update;|Update and install:RUN oshpark.ulp update install;} '; ??
+++ MENU ' [oshpark.png]Oshpark{Upload PCB: RUN oshpark-upload.ulp;|Check for updates: RUN oshpark.ulp update;|Update and install:RUN oshpark.ulp update install;} ';
+ ++
+Installing menu.!
+>> MENU ' [oshpark.png]Oshpark{Upload PCB: RUN oshpark-upload.ulp;|Check for updates: RUN oshpark.ulp update;|Update and install:RUN oshpark.ulp update install;} ';
+
